@@ -16,6 +16,7 @@ class UserTest < ActiveSupport::TestCase
 		assert_not @user.valid?
 	end
 
+
 	test "email should be valid" do 
 		@user.email = "   "
 		assert_not @user.valid?
@@ -31,7 +32,7 @@ class UserTest < ActiveSupport::TestCase
 		assert_not @user.valid?
 	end
 
-	test "email validation should accept invalid email" do 
+	test "email validation should reject invalid email" do 
 		invalid_address = %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com]
 		invalid_address.each do |invalid_address|
 			@user.email = invalid_address
